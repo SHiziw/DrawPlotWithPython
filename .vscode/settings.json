@@ -12,7 +12,7 @@
     ],
    
     //配置python的路径
-    "python.pythonPath": "D:\\ProgramData\\Anaconda\\python.exe",
+    "python.pythonPath": "D:\\Projects\\Anaconda3\\python.exe",
 
     // anaconda 虚拟环境目录
     "python.venvPath": "D:\\Projects\\Anaconda3\\envs",
@@ -20,5 +20,7 @@
     // 虚拟环境具体目录
     "python.venvFolders": [
         "tf"   
-    ]
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
