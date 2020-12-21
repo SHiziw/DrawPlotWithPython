@@ -18,13 +18,14 @@ y_bspline = scipy.interpolate.splev(input_x, tck,der=0) # der = 0 即原始的B�
 output_y = scipy.interpolate.splev(input_x, tck,der=1) # der = 1 即一次求导
 #-----------------原始数据--------------------
 
-#------------------处理后---------------------
+#-----------------SG处理后--------------------
 input_y_SG = scipy.signal.savgol_filter(input_y,21,2) #首先对y进行一次 Savitzky-Golay 滤波，时间窗21，2阶多项式
 tck_SG = scipy.interpolate.splrep(input_x, input_y_SG) 
 y_bspline_SG = scipy.interpolate.splev(input_x, tck_SG,der=0) 
 output_y_SG = scipy.interpolate.splev(input_x, tck_SG,der=1) 
-output_y_SG = scipy.signal.savgol_filter(output_y_SG,11,3) #首先对y进行第二次 Savitzky-Golay 滤波，时间窗11，3阶多项式
-#------------------处理后---------------------
+output_y_SG = scipy.signal.medfilt(output_y_SG,kernel_size=11) #进行中值滤波
+output_y_SG = scipy.signal.savgol_filter(output_y_SG,11,4) #首先对y进行第二次 Savitzky-Golay 滤波，时间窗11，3阶多项式
+#-----------------SG处理后--------------------
 
 plt.figure()
 plt.grid(True)
