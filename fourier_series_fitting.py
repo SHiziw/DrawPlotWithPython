@@ -2,6 +2,9 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import numpy as np
  
+plt.rcParams['font.sans-serif'] = ['STSong']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+plt.rcParams['mathtext.fontset'] = 'stix' # 设置数学字体为类times样式
  
 def fourier(x, *a):
     w = 2 * np.pi / 200

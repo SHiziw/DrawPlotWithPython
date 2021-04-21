@@ -6,6 +6,10 @@ import scipy.signal
 import scipy.interpolate
 import matplotlib.pyplot as plt
 
+plt.rcParams['font.sans-serif'] = ['STSong']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+plt.rcParams['mathtext.fontset'] = 'stix' # 设置数学字体为类times样式
+
 weight_file = open("target.csv", 'r') # 读取前两行作为x,y
 weight_list = weight_file.readlines()
 weight_file.close()
